@@ -14,5 +14,6 @@ public:
     bool ffMultiplyTestOne();
     bool ffMultiplyTestTwo();
     bool ffAddTestOne();
+    bool mixColumns();
 };
 

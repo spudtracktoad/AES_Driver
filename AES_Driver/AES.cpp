@@ -31,3 +31,42 @@ uint8_t AES::ffMultiply(uint8_t multiplicand, uint8_t multiplier)
     }
     return result;
 }
+
+void AES::SetState(uint8_t input[4][4])
+{
+    for (int i = 0; i < 4; i++)
+    {
+        for (int index = 0; index < 4; index++)
+        {
+            state[i][index] = input[i][index];
+        }
+    }
+}
+
+uint8_t** AES::getState()
+{
+    uint8_t** result[4][4];
+
+    for (int i = 0; i < 4; i++)
+    {
+        for (int d = 0; d < 4; d++)
+        {
+            //result[i][d] = state[i][d];
+        }
+    }
+    return NULL;
+}
+
+void AES::mixColumns()
+{
+    for (int i = 0; i < 4; i++)
+    {
+        for (int index = 0; index < 4; index++)
+        {
+            state[i][index] = (ffMultiply(state[i][0], StateMixColumn[i][0]) ^
+                               ffMultiply(state[i][1], StateMixColumn[i][1]) ^
+                               ffMultiply(state[i][2], StateMixColumn[i][2]) ^
+                               ffMultiply(state[i][3], StateMixColumn[i][3]));
+        }
+    }
+}

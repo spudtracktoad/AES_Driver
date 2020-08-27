@@ -23,6 +23,7 @@ int main()
     cout << "ffMultiplyTestOne: " << test->ffMultiplyTestOne() << endl;
     cout << "ffMultiplyTestTwo: " << test->ffMultiplyTestTwo() << endl;
     cout << "ffAddTestOne: " << test->ffAddTestOne() << endl;
+    cout << "mixColumns: " << test->mixColumns() << endl;
 
 }
 

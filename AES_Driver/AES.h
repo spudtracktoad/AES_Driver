@@ -64,11 +64,19 @@ class AES
                     { 0x17, 0x2b, 0x04, 0x7e, 0xba, 0x77, 0xd6, 0x26, 0xe1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0c, 0x7d }
                     };*/
 
+    uint8_t StateMixColumn[4][4] = { {0x02, 0x03, 0x01, 0x01},
+                                    {0x01, 0x02, 0x03, 0x01},
+                                    {0x01, 0x01, 0x02, 0x03},
+                                    {0x03, 0x01, 0x01, 0x02} };
+    private:
+        uint8_t state[4][4];
+
 	public:
 		uint8_t xTime(uint8_t input);
 		uint8_t ffAdd(int8_t addend1, uint8_t addend2);
 		uint8_t	ffMultiply(uint8_t multiplicand, uint8_t multiplier);
-
+        void SetState(uint8_t input[4][4]);
+        uint8_t** getState();
 		void mixColumns();
 
 
